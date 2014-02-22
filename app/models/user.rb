@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
     tokens.gsub!(/<<<(.+?)>>>/) { create!(name: $1).id }
     tokens.split(',')
   end
+
+  def to_s
+    name
+  end
 end

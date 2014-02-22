@@ -1,25 +1,16 @@
-<p id="notice"><%= notice %></p>
+<% content_for :outside_container do %>
+  <div class="jumbotron">
+    <div class="container">
+      <h1><%= @feast.name %></h1>
+      <p>
+        Who is going:
+        <% @feast.users.each do |user| %>
+          <%= user %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @feast.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @feast.description %>
-</p>
-
-<p>
-  <strong>Restaurant:</strong>
-  <%= @feast.restaurant %>
-</p>
-
-<p>
-  <strong>Users:</strong>
-  <%= @feast.users.map(&:name) %>
-</p>
-
-
-<%= link_to 'Edit', edit_feast_path(@feast) %> |
-<%= link_to 'Back', feasts_path %>
+<%= link_to 'Update details', edit_feast_path(@feast), class: 'btn btn-default' %>
+<%= link_to 'Add more people', edit_feast_path(@feast), class: 'btn btn-default' %>
