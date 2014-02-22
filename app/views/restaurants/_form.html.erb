@@ -11,15 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control' %>
   </div>
+
+  <div class="form-group">
+    <%= f.label :price %>
+    <%= f.select :price, options_for_select(Restaurant::PRICES, @restaurant.price), {}, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :cuisine %>
+    <%= f.select :cuisine, options_for_select(Restaurant::CUISINES, @restaurant.cuisine), {}, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :location %>
+    <%= f.select :location, options_for_select(Restaurant::LOCATIONS, @restaurant.location), {}, class: 'form-control' %>
+  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.button 'Create Restaurant', class: 'btn btn-default' %>
   </div>
 <% end %>

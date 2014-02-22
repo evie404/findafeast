@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140222194735) do
+ActiveRecord::Schema.define(version: 20140222220157) do
 
   create_table "feasts", force: true do |t|
     t.string   "name"
@@ -33,7 +33,14 @@ ActiveRecord::Schema.define(version: 20140222194735) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "price"
+    t.string   "cuisine"
+    t.string   "address"
+    t.string   "location"
   end
+
+  add_index "restaurants", ["cuisine"], name: "index_restaurants_on_cuisine"
+  add_index "restaurants", ["location"], name: "index_restaurants_on_location"
 
   create_table "users", force: true do |t|
     t.string   "name"

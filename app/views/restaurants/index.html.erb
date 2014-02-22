@@ -1,8 +1,63 @@
 <h1>Listing restaurants</h1>
 
 <div class="row">
-<!--   <div class="col-md-3">
-  </div> -->
+  <div class="col-md-3">
+    <h4>
+      Search for restaurants
+    </h4>
+    <%= form_tag(restaurants_path, method: "get") do %>
+      <div class="form-group">
+        <%= label_tag :party, 'Party of?' %>
+        <%= select_tag :party,
+          options_for_select(
+            (2..10).to_a,
+            params[:party]
+          ),
+          class: 'form-control'
+        %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :location, 'Location' %>
+        <%= select_tag :location,
+          options_for_select(
+            [''] + Restaurant::LOCATIONS,
+            params[:location]
+          ),
+          class: 'form-control'
+        %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :cuisine, 'Cuisine' %>
+        <%= select_tag :cuisine,
+          options_for_select(
+            [''] + Restaurant::CUISINES,
+            params[:cuisine]
+          ),
+          class: 'form-control'
+        %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :price, 'Price' %>
+        <%= select_tag :price,
+          options_for_select(
+            [''] + Restaurant::PRICES,
+            params[:price]
+          ),
+          class: 'form-control'
+        %>
+      </div>
+
+      <!-- <div class="form-group">
+        <%= label_tag :q, "Name" %>
+        <%= text_field_tag :q, params[:q], class: 'form-control' %>
+      </div> -->
+
+      <%= button_tag 'Search', class: 'btn btn-default' %>
+    <% end %>
+  </div>
   <div class="col-md-9">
     <% @restaurants.each do |restaurant| %>
       <div class="media">
@@ -14,7 +69,7 @@
             <%= link_to restaurant, restaurant %>
           </h3>
           <div>
-            Japanese $$$ CBD
+            <%= restaurant.cuisine %> <%= restaurant.display_price %> <%= restaurant.location %>
           </div>
           <p>
             <%= restaurant.description %>

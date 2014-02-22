@@ -5,6 +5,9 @@ class RestaurantsController < ApplicationController
   # GET /restaurants.json
   def index
     @restaurants = Restaurant.all
+    Restaurant::SEARCHABLE_ATTRIBUTES.each do |attribute|
+      @restaurants = @restaurants.where(attribute => params[attribute]) if params[attribute].present?
+    end
   end
 
   # GET /restaurants/1
@@ -69,6 +72,6 @@ class RestaurantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :description)
+      params.require(:restaurant).permit(:name, :description, *Restaurant::SEARCHABLE_ATTRIBUTES)
     end
 end
