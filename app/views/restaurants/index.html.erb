@@ -61,9 +61,9 @@
   <div class="col-md-9">
     <% @restaurants.each do |restaurant| %>
       <div class="media">
-        <a class="pull-left" href="#">
-          <img class="media-object" src="http://placehold.it/250x150">
-        </a>
+        <%= link_to restaurant, class: 'pull-left' do %>
+          <%= image_tag 'http://placehold.it/250x150' %>
+        <% end %>
         <div class="media-body">
           <h3 class="media-heading">
             <%= link_to restaurant, restaurant %>
