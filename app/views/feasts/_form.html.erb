@@ -19,6 +19,7 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
+  <%= f.text_field :user_tokens, data: { load: @feast.users } %>
   <%= f.hidden_field :restaurant_id %>
   <div class="actions">
     <%= f.submit %>

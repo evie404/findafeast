@@ -15,5 +15,11 @@
   <%= @feast.restaurant %>
 </p>
 
+<p>
+  <strong>Users:</strong>
+  <%= @feast.users.map(&:name) %>
+</p>
+
+
 <%= link_to 'Edit', edit_feast_path(@feast) %> |
 <%= link_to 'Back', feasts_path %>
