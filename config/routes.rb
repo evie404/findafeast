@@ -3,7 +3,7 @@ Findafeast::Application.routes.draw do
 
   resources :users
 
-  root 'main#index'
+  root 'restaurants#index'
 
   resources :restaurants do
     resources :feasts
