@@ -1,5 +1,7 @@
 class FeastsController < ApplicationController
   before_action :set_feast, only: [:show, :edit, :update, :destroy]
+  before_action :set_restaurant, only: [:new]
+
 
   # GET /feasts
   # GET /feasts.json
@@ -14,7 +16,8 @@ class FeastsController < ApplicationController
 
   # GET /feasts/new
   def new
-    @feast = Feast.new
+    @feast = Feast.new(restaurant_id: @restaurant.id)
+    @feast.name = @feast.default_name
   end
 
   # GET /feasts/1/edit
@@ -62,6 +65,10 @@ class FeastsController < ApplicationController
   end
 
   private
+    def set_restaurant
+      @restaurant = Restaurant.find(params[:restaurant_id])
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_feast
       @feast = Feast.find(params[:id])
