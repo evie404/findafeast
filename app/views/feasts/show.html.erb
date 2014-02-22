@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @feast.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @feast.description %>
+</p>
+
+<p>
+  <strong>Restaurant:</strong>
+  <%= @feast.restaurant %>
+</p>
+
+<%= link_to 'Edit', edit_feast_path(@feast) %> |
+<%= link_to 'Back', feasts_path %>

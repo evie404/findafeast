@@ -1,4 +1,6 @@
 Findafeast::Application.routes.draw do
+  resources :feasts
+
   resources :users
 
   root 'main#index'

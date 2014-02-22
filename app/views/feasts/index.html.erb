@@ -1,0 +1,31 @@
+<h1>Listing feasts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Restaurant</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @feasts.each do |feast| %>
+      <tr>
+        <td><%= feast.name %></td>
+        <td><%= feast.description %></td>
+        <td><%= feast.restaurant %></td>
+        <td><%= link_to 'Show', feast %></td>
+        <td><%= link_to 'Edit', edit_feast_path(feast) %></td>
+        <td><%= link_to 'Destroy', feast, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Feast', new_feast_path %>
