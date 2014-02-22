@@ -8,11 +8,13 @@ class RestaurantsController < ApplicationController
     Restaurant::SEARCHABLE_ATTRIBUTES.each do |attribute|
       @restaurants = @restaurants.where(attribute => params[attribute]) if params[attribute].present?
     end
+    @restaurants = @restaurants.decorate
   end
 
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
+    @restaurant = @restaurant.decorate
   end
 
   # GET /restaurants/new
