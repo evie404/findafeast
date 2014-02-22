@@ -1,15 +1,13 @@
-<p id="notice"><%= notice %></p>
+<% content_for :outside_container do %>
+  <div class="jumbotron">
+    <div class="container">
+      <h1><%= @restaurant.name %></h1>
+      <p><%= @restaurant.description %></p>
+    </div>
+  </div>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @restaurant.description %>
-</p>
+<%= link_to 'Start a Feast', new_restaurant_feast_path(@restaurant), class: 'btn btn-default' %>
 
-<%= link_to 'Create Feast', new_restaurant_feast_path(@restaurant) %> |
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+<!-- <%= link_to 'Back', restaurants_path %> -->
