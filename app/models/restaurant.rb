@@ -20,4 +20,15 @@ class Restaurant < ActiveRecord::Base
   def to_s
     name
   end
+
+  COVER_URL = [
+    'https://lh3.ggpht.com/-2WMltLZiXHU/UH6g3jrmuzI/AAAAAAAAEVs/kAEYRsYrK6Q/s1600/Equinox+SG.jpg',
+    'http://retaildesignblog.net/wp-content/uploads/2013/09/Kaiseki-Yoshiyuki-restaurant-by-B3-Designers-Singapore.jpg',
+    'http://static.asiawebdirect.com/m/phuket/portals/www-singapore-com/homepage/food-dining/TopPageContent/0/BigImage/singapore-dining-740.jpg'
+  ]
+  def cover_url
+    if id.present?
+      COVER_URL[id % COVER_URL.length]
+    end
+  end
 end

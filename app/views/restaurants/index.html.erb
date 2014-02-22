@@ -65,7 +65,8 @@
     <% @restaurants.each do |restaurant| %>
       <div class="media">
         <%= link_to restaurant, class: 'pull-left' do %>
-          <%= image_tag 'http://placehold.it/250x150' %>
+          <div class="restaurant-thumb" style="background-image: url('<%= restaurant.cover_url%>')">
+          </div>
         <% end %>
         <div class="media-body">
           <h3 class="media-heading">
