@@ -1,5 +1,5 @@
 jQuery ->
   $('#feast_user_tokens').tokenInput '/users.json', {
-    theme: 'mac'
+    theme: 'facebook'
     prePopulate: $('#feast_user_tokens').data('load')
   }
