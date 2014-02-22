@@ -36,6 +36,11 @@
     <%= f.select :location, options_for_select(Restaurant::LOCATIONS, @restaurant.location), {}, class: 'form-control' %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_field :address, class: 'form-control' %>
+  </div>
+
   <div class="actions">
     <%= f.button 'Create Restaurant', class: 'btn btn-default' %>
   </div>
