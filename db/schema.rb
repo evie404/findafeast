@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140222220157) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "feasts", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20140222220157) do
     t.datetime "updated_at"
   end
 
-  add_index "feasts", ["restaurant_id"], name: "index_feasts_on_restaurant_id"
+  add_index "feasts", ["restaurant_id"], name: "index_feasts_on_restaurant_id", using: :btree
 
   create_table "feasts_users", id: false, force: true do |t|
     t.integer "feast_id"
@@ -39,8 +42,8 @@ ActiveRecord::Schema.define(version: 20140222220157) do
     t.string   "location"
   end
 
-  add_index "restaurants", ["cuisine"], name: "index_restaurants_on_cuisine"
-  add_index "restaurants", ["location"], name: "index_restaurants_on_location"
+  add_index "restaurants", ["cuisine"], name: "index_restaurants_on_cuisine", using: :btree
+  add_index "restaurants", ["location"], name: "index_restaurants_on_location", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -48,6 +51,6 @@ ActiveRecord::Schema.define(version: 20140222220157) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["name"], name: "index_users_on_name"
+  add_index "users", ["name"], name: "index_users_on_name", using: :btree
 
 end
