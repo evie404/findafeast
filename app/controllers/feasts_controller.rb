@@ -77,6 +77,6 @@ class FeastsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def feast_params
-      params.require(:feast).permit(:name, :description, :restaurant_id, :user_tokens)
+      params.require(:feast).permit(:name, :description, :restaurant_id, :user_tokens, :time)
     end
 end
