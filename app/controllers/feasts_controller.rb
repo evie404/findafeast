@@ -12,7 +12,7 @@ class FeastsController < ApplicationController
   # GET /feasts/1
   # GET /feasts/1.json
   def show
-    @restaurant = @feast.restaurant
+    @restaurant = @feast.restaurant.decorate
   end
 
   # GET /feasts/new
@@ -67,7 +67,7 @@ class FeastsController < ApplicationController
 
   private
     def set_restaurant
-      @restaurant = Restaurant.find(params[:restaurant_id])
+      @restaurant = Restaurant.find(params[:restaurant_id]).decorate
     end
 
     # Use callbacks to share common setup or constraints between actions.
