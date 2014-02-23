@@ -33,12 +33,12 @@ ActiveRecord::Schema.define(version: 20140222231935) do
 
   create_table "restaurants", force: true do |t|
     t.string   "name"
-    t.string   "description"
+    t.text   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "price"
     t.string   "cuisine"
-    t.string   "address"
+    t.text   "address"
     t.string   "location"
     t.string   "phone"
   end
