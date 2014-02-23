@@ -12,6 +12,7 @@ class FeastsController < ApplicationController
   # GET /feasts/1
   # GET /feasts/1.json
   def show
+    @restaurant = @feast.restaurant
   end
 
   # GET /feasts/new

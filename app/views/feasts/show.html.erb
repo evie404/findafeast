@@ -1,5 +1,5 @@
 <% content_for :outside_container do %>
-  <div class="jumbotron restaurant-jumbotron" style="background-image: url('<%= @feast.restaurant.cover_url%>'); background-size: 100% auto; background-opacity: 0.1;">
+  <div class="jumbotron restaurant-jumbotron" style="background-image: url('<%= @restaurant.cover_url%>'); background-size: 100% auto; background-opacity: 0.1;">
     <div class="container">
       <h1><%= @feast.name %></h1>
       <p>
@@ -12,5 +12,23 @@
   </div>
 <% end %>
 
-<%= link_to 'Update details', edit_feast_path(@feast), class: 'btn btn-default' %>
-<%= link_to 'Add more people', edit_feast_path(@feast), class: 'btn btn-default' %>
+<div class="row">
+  <div class="col-md-9">
+    <p>
+      <%= @restaurant.description %>
+    </p>
+    <p>
+      <%= link_to 'Update details', edit_feast_path(@feast), class: 'btn btn-default' %>
+      <%= link_to 'Add more people', edit_feast_path(@feast), class: 'btn btn-default' %>
+    </p>
+  </div>
+  <div class="col-md-3">
+    <h4>Where to find?</h4>
+    <p>
+      <%= @restaurant.address %>
+    </p>
+    <p>
+      <%= @restaurant.phone %>
+    </p>
+  </div>
+</div>

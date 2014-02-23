@@ -7,10 +7,23 @@
   </div>
 <% end %>
 
-<p>
-  <%= @restaurant.description %>
-</p>
-
-<%= link_to 'Start a Feast', new_restaurant_feast_path(@restaurant), class: 'btn btn-default' %>
-
+<div class="row">
+  <div class="col-md-9">
+    <p>
+      <%= @restaurant.description %>
+    </p>
+    <p>
+      <%= link_to 'Start a Feast', new_restaurant_feast_path(@restaurant), class: 'btn btn-default' %>
+    </p>
+  </div>
+  <div class="col-md-3">
+    <h4>Where to find?</h4>
+    <p>
+      <%= @restaurant.address %>
+    </p>
+    <p>
+      <%= @restaurant.phone %>
+    </p>
+  </div>
+</div>
 <!-- <%= link_to 'Back', restaurants_path %> -->
