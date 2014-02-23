@@ -24,8 +24,16 @@ class Restaurant < ActiveRecord::Base
   COVER_URL = [
     'https://lh3.ggpht.com/-2WMltLZiXHU/UH6g3jrmuzI/AAAAAAAAEVs/kAEYRsYrK6Q/s1600/Equinox+SG.jpg',
     'http://retaildesignblog.net/wp-content/uploads/2013/09/Kaiseki-Yoshiyuki-restaurant-by-B3-Designers-Singapore.jpg',
-    'http://static.asiawebdirect.com/m/phuket/portals/www-singapore-com/homepage/food-dining/TopPageContent/0/BigImage/singapore-dining-740.jpg'
-  ]
+    'http://static.asiawebdirect.com/m/phuket/portals/www-singapore-com/homepage/food-dining/TopPageContent/0/BigImage/singapore-dining-740.jpg',
+    'http://www.district10.com.sg/img/uesquare/201311DSC_5941.jpg',
+    'http://www.district10.com.sg/img/uesquare/201311PrivateDiningRoom.jpg',
+    'http://www.district10.com.sg/img/uesquare/201311OutdoorArea2.jpg',
+    'http://www.district10.com.sg/img/uesquare/201311TheBarArea.jpg',
+    'http://www.district10.com.sg/img/uesquare/201311TheDiningRoom.jpg',
+    'http://www.district10.com.sg/img/starvista/tsv3.jpg',
+    'http://www.district10.com.sg/img/starvista/tsv7.jpg'
+  ].shuffle
+
   def cover_url
     if id.present?
       COVER_URL[id % COVER_URL.length]
